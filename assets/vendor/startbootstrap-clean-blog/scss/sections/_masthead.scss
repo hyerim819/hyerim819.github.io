@@ -1,0 +1,445 @@
+// Styling for the masthead
+header.masthead {
+    // TIP: Background images are set within the HTML using inline CSS!
+    margin-bottom: 50px;
+    background: no-repeat center center;
+    background-color: $gray-600;
+    background-attachment: scroll;
+    position: relative;
+    background-size: cover;
+
+    /*.overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: $gray-900;
+        opacity: 0.5;
+    }*/
+
+    .page-heading,
+    .post-heading,
+    .site-heading {
+         padding: 200px 0 150px;
+
+
+        @media only screen and (min-width: 768px) {
+            padding: 200px 0;
+
+        h1{
+            
+        color: rgb(255, 255, 255);
+        text-shadow: 
+        -1px -1px 0 #e1c7fa,
+        1px -1px 0 #e1c7fa,
+        -1px  1px 0 #e1c7fa,
+        1px  1px 0 #e1c7fa; ;
+
+        }
+        }
+        .subheading{
+             //padding: 200px 0 150px;
+        color: rgb(139, 102, 253);
+        /*text-shadow: 
+        -1px -1px 0 #e1c7fa,
+        1px -1px 0 #e1c7fa,
+        -1px  1px 0 #e1c7fa,
+        1px  1px 0 #e1c7fa; ;*/
+
+        //@media only screen and (min-width: 768px) {
+           // padding: 200px 0;
+        //}
+        }
+        
+    }
+    
+
+    .page-heading,
+    .site-heading {
+        text-align: center;
+
+        h1 {
+            font-size: 50px;
+            margin-top: 0;
+        }
+
+        .subheading {
+            font-size: 20px;
+            font-weight: 300;
+            line-height: 1.1;
+            display: block;
+            margin: 10px 0 0;
+            font-family: $headings-font-family;
+        }
+
+        @media only screen and (min-width: 768px) {
+            h1 {
+                font-size: 80px;
+            }
+        }
+    }
+
+    .post-heading {
+        h1 {
+            font-size: 35px;
+        }
+
+        .meta,
+        .subheading {
+            line-height: 1.1;
+            display: block;
+        }
+
+        .subheading {
+            font-size: 24px;
+            font-weight: 600;
+            margin: 10px 0 30px;
+            font-family: $headings-font-family;
+        }
+
+        .meta {
+            font-size: 20px;
+            font-weight: 300;
+            font-style: italic;
+            font-family: $font-family-base;
+
+            a {
+                color: $white;
+            }
+        }
+
+        @media only screen and (min-width: 768px) {
+            h1 {
+                font-size: 55px;
+            }
+
+            .subheading {
+                font-size: 30px;
+            }
+        }
+    }
+}
+
+.category-home {
+  padding: 60px 0 100px;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 36px;
+}
+
+.category-home {
+  padding: 160px 0 100px;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.category-card {
+  display: block;
+  padding: 32px;
+  min-height: 220px;
+  border-radius: 24px;
+  text-decoration: none;
+  color: #2f3550;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+
+  display: block;
+  position: relative;
+  z-index: 1;
+  text-decoration: none;
+}
+
+.category-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* 세로 가운데 */
+  align-items: flex-start;   /* 왼쪽 정렬 유지 */
+  text-align: left;
+
+  padding: 36px 48px;
+  min-height: 180px;         /* 기존보다 낮게 */
+  border-radius: 28px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.06);
+}
+.category-card h2 {
+  margin: 0 0 14px 0;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.category-card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+/* 기본 배경색 */
+.category-card.mint { background: #def7ea; }
+.category-card.lavender { background: #eee5ff; }
+.category-card.sky { background: #dff3ff; }
+.category-card.peach { background: #ffe8dc; }
+.category-card.pink { background: #ffe3f1; }
+.category-card.butter { background: #fff4cc; }
+
+/* hover 공통 */
+.category-card:hover {
+  transform: translateY(-6px);
+  text-decoration: none;
+}
+
+/* 개발 */
+.category-card.mint:hover {
+  background: #c9efd8;
+}
+.category-card.mint:hover h2 {
+  color: #2f7a57;
+}
+.category-card.mint:hover p {
+  color: #4f7f69;
+}
+
+/* CTF / Wargame */
+.category-card.lavender:hover {
+   background: #c9efd8;
+}
+
+.category-card h2 {
+  margin: 0 0 12px 0;
+  transition: color 0.25s ease;
+}
+
+.category-card p {
+  margin: 0;
+  transition: color 0.25s ease;
+}
+
+/* 기본 배경색 */
+.category-card.mint { background: #def7ea; }
+.category-card.lavender { background: #eee5ff; }
+.category-card.sky { background: #dff3ff; }
+.category-card.peach { background: #ffe8dc; }
+.category-card.pink { background: #ffe3f1; }
+.category-card.butter { background: #fff4cc; }
+
+/* hover 공통 */
+.category-card:hover {
+  transform: translateY(-6px);
+  text-decoration: none;
+}
+
+/* 개발 */
+.category-card.mint:hover {
+  background: #c9efd8;
+}
+.category-card.mint:hover h2 {
+  color: #2f7a57;
+}
+.category-card.mint:hover p {
+  color: #4f7f69;
+}
+
+/* CTF / Wargame */
+.category-card.lavender:hover {
+  background: #ddd0ff;
+}
+.category-card.lavender:hover h2 {
+  color: #7a57c5;
+}
+.category-card.lavender:hover p {
+  color: #6f5a9b;
+}
+
+/* Bug Bounty */
+.category-card.sky:hover {
+  background: #cbe9ff;
+}
+.category-card.sky:hover h2 {
+  color: #3f7db4;
+}
+.category-card.sky:hover p {
+  color: #5d7f99;
+}
+
+/* 블로그 / 기술문서 */
+.category-card.peach:hover {
+  background: #ffd9c8;
+}
+.category-card.peach:hover h2 {
+  color: #c76b4f;
+}
+.category-card.peach:hover p {
+  color: #9a6d5d;
+}
+
+/* 논문 / 컨퍼런스 */
+.category-card.pink:hover {
+  background: #ffcfe4;
+}
+.category-card.pink:hover h2 {
+  color: #c85d95;
+}
+.category-card.pink:hover p {
+  color: #9b627b;
+}
+
+/* 공모전 / 자격증 */
+.category-card.butter:hover {
+  background: #ffecad;
+}
+.category-card.butter:hover h2 {
+  color: #b88a2f;
+}
+.category-card.butter:hover p {
+  color: #8e7440;
+}
+
+.category-list-page {
+  padding-top: 120px;
+  padding-bottom: 60px;
+}
+
+.category-page-title {
+  margin-bottom: 40px;
+  font-size: 48px;
+  font-weight: 800;
+}
+
+.post-hero-wrap {
+ padding-top: clamp(96px, 10vw, 140px);
+padding-bottom: 28px;
+}
+
+.post-hero-card {
+  width: 100%;
+  padding: clamp(22px, 3vw, 34px) clamp(28px, 5vw, 56px);
+  border-radius: clamp(20px, 3vw, 32px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.06);
+}
+
+.post-hero-card h1 {
+  margin: 0 0 12px;
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #000000;
+}
+
+.post-hero-subtitle {
+  margin: 0 0 20px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #3c3c3e;
+}
+
+.post-hero-meta {
+  margin: 0;
+  font-size: 18px;
+  color: #5d6785;
+}
+
+@media (max-width: 768px) {
+  .post-hero-wrap {
+    padding-top: 100px;
+    padding-bottom: 28px;
+  }
+
+  .post-hero-card {
+    padding: 28px 24px;
+    border-radius: 22px;
+  }
+
+  .post-hero-card h1 {
+    font-size: 38px;
+  }
+
+  .post-hero-subtitle {
+    font-size: 18px;
+  }
+
+  .post-hero-meta {
+    font-size: 16px;
+  }
+}
+
+//포스트 색 
+.mint { //개발
+  background-color: #d3f0df;
+}
+
+.lavender { //ctf
+  background-color: #ddd0ff;
+}
+
+.sky { //버그바운티
+  background-color: #cbe9ff;
+}
+
+.peach { //블로그
+  background-color: #ffd9c8;
+}
+
+.pink { //논문
+  background-color: #ffcfe4;
+}
+
+.butter { //공모전
+  background-color: #ffecad;
+}
+
+main {
+  padding-top: 100px;
+}
+
+.page-heading,
+.post-heading,
+.container > .row > .col-lg-8.col-md-10.mx-auto {
+  margin-top: 100px;
+}
+
+
+.list-inline-item a:hover .fa-circle,
+.list-inline-item a:focus .fa-circle,
+.list-inline-item a:active .fa-circle {
+  color: #f4b6c2 !important;   /* 버튼에 마우스 올렸을 때 원 배경색 */
+}
+
+.list-inline-item a:hover .fa-inverse,
+.list-inline-item a:focus .fa-inverse,
+.list-inline-item a:active .fa-inverse {
+  color: #ffffff !important;   /* 아이콘 색 */
+}
+
+
+.post-preview > a {
+  color: #212529 !important;   /* 기본 글자색 */
+}
+
+.post-preview > a:hover,
+.post-preview > a:focus,
+.post-preview > a:active {
+  color: #96efe1 !important;   /* 마우스 올리거나 클릭했을 때 색 */
+  text-decoration: none;
+}
+
+.post-preview > a:hover .post-title,
+.post-preview > a:focus .post-title,
+.post-preview > a:active .post-title,
+.post-preview > a:hover .post-subtitle,
+.post-preview > a:focus .post-subtitle,
+.post-preview > a:active .post-subtitle {
+  color: #96efe1 !important;
+}
