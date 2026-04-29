@@ -1,10 +1,11 @@
 ---
 layout: post
 title: "~2026.03 활동정리"
-subtitle: 지난 활동 회고 및 고찰
-date: 2026-04-09 
-categories: [blog-docs]
---- 
+description: "지난 활동 회고 및 고찰"
+date: 2026-04-09
+categories: [블로그]
+tags: [활동정리, 회고, 기록]
+---
 <h4>1. 개발</h4>
 동아리 프로젝트로 임베디드 앱 개발 해봤음.(프론트엔드 담당)
 <img src="/img/ttalkkag.png" alt="개발 앱 사진" width="500">

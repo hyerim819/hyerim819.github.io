@@ -1,9 +1,10 @@
 ---
 layout: post
 title: "커리어패스"
-subtitle: 희망 회사 조사
+description: 희망 회사 조사
 date: 2026-04-11
-categories: [blog-docs]
+categories: [블로그]
+tags: [진로, 기록]
 --- 
 
 <h3>(1)가장 중요한 가치 : 직무 적합성, 함께 일하는 사람</h3>
