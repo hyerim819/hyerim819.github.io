@@ -25,6 +25,8 @@ base64 -d data.txt
 
 이 명령어를 실행하면 원래의 문자열이 출력되고, 다음 단계의 비밀번호를 얻을 수 있다.
 
+<img src="img/bandit/10-11.png" alt="0-1" width="500">
+
 ---
 
 ## 11 → 12 단계
@@ -40,6 +42,7 @@ cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
 ```
 
 처음에는 `A-Za-z` 부분을 보고 `Za`가 하나의 단어처럼 취급되는 줄 알고 해석하는 데 헷갈렸다. 결국 LLM의 도움을 받아 `A-Z`와 `a-z` 범위를 의미한다는 것을 이해했다.
+<img src="img/bandit/11-12.png" alt="0-1" width="500">
 
 ---
 
@@ -84,6 +87,8 @@ tar 파일의 경우 압축 해제 후 파일명이 바뀌는 경우가 있었�
 ls
 mv 변경된파일명 data
 ```
+<img src="img/bandit/12-13-1.png" alt="0-1" width="500">
+<img src="img/bandit/12-13-2.png" alt="0-1" width="500">
 
 ---
 
@@ -133,6 +138,9 @@ ssh -i bandit.key bandit14@bandit.labs.overthewire.org -p 2220
 ```
 
 이 방법으로 bandit14 계정에 접속할 수 있었다.
+<img src="img/bandit/13-14-1.png" alt="0-1" width="500">
+<img src="img/bandit/13-14-2.png" alt="0-1" width="500">
+<img src="img/bandit/13-14-3.png" alt="0-1" width="500">
 
 ---
 
@@ -153,6 +161,7 @@ nc localhost 30000
 ```bash
 echo "현재비밀번호" | nc localhost 30000
 ```
+<img src="img/bandit/14-15.png" alt="0-1" width="500">
 
 ---
 
@@ -201,6 +210,8 @@ openssl s_client -connect localhost:31790 -quiet
 chmod 600 sshkey
 ssh -i sshkey bandit17@bandit.labs.overthewire.org -p 2220
 ```
+<img src="img/bandit/16-17-1.png" alt="0-1" width="500">
+<img src="img/bandit/16-17-2.png" alt="0-1" width="500">
 
 ---
 
@@ -215,6 +226,7 @@ diff passwords.old passwords.new
 ```
 
 `diff` 명령어는 두 파일에서 서로 다른 부분을 출력해준다. 이를 통해 다음 단계의 비밀번호를 확인할 수 있었다.
+<img src="img/bandit/17-18.png" alt="0-1" width="500">
 
 ---
 
@@ -261,6 +273,7 @@ ls
 ```
 
 이를 통해 다음 단계의 비밀번호를 얻었다.
+<img src="img/bandit/19-20.png" alt="0-1" width="500">
 
 ---
 
@@ -281,6 +294,7 @@ echo "현재비밀번호" | nc -l -p 12345
 ```
 
 `suconnect`가 해당 포트로 접속하여 비밀번호를 확인하고, 올바르면 다음 단계의 비밀번호를 출력한다.
+<img src="img/bandit/20-21.png" alt="0-1" width="500">
 
 ---
 
@@ -308,6 +322,8 @@ cat /usr/bin/cronjob_bandit22.sh
 ```
 
 스크립트 내용을 따라가며 파일을 확인한 결과, bandit22의 비밀번호를 얻을 수 있었다.
+
+<img src="img/bandit/21-22.png" alt="0-1" width="500">
 
 ---
 
@@ -361,6 +377,7 @@ cat /tmp/8ca319486bfbbc3663ea0fbe81326349
 ```
 
 이를 통해 bandit23의 비밀번호를 얻을 수 있었다.
+<img src="img/bandit/22-23.png" alt="0-1" width="500">
 
 ---
 
@@ -432,6 +449,10 @@ cat /tmp/bandit23_to_24/password
 
 이를 통해 bandit24의 비밀번호를 얻을 수 있었다.
 
+<img src="img/bandit/23-24-1.png" alt="0-1" width="500">
+<img src="img/bandit/23-24-2.png" alt="0-1" width="500">
+<img src="img/bandit/23-24-3.png" alt="0-1" width="500">
+
 ---
 
 ## 24 → 25 단계
@@ -491,3 +512,5 @@ done | nc localhost 30002 | grep -v "Wrong"
 ```
 
 이 명령어를 통해 올바른 PIN이 입력되었을 때 출력되는 bandit25의 비밀번호를 확인할 수 있었다.
+
+<img src="img/bandit/24-25.png" alt="0-1" width="500">
