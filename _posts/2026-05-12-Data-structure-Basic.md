@@ -318,7 +318,6 @@ E는 간선이고 ,degree는 특정 정점에 연결된 간선 수 이다.
 
 ## LOJ 자료구조 문제풀이 인증사진
 
-해와 달 전시 : 그리디 알고리즘과 BFS를 사용함. 
 
 https://bnzn2426.tistory.com/115
 https://suhyun113.tistory.com/9
