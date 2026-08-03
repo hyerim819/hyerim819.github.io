@@ -19,8 +19,14 @@ layout: default
 </section>
 
 <section class="metrics-strip" aria-label="블로그 현황">
+  {% assign top_category_count = 0 %}
+  {% for category in site.categories %}
+    {% assign category_posts = category | last %}
+    {% assign first_post = category_posts | first %}
+    {% if category[0] == first_post.categories[0] %}{% assign top_category_count = top_category_count | plus: 1 %}{% endif %}
+  {% endfor %}
   <div class="metric"><span class="pixel-icon"></span><div><small>POSTS</small><strong>{{ site.posts | size }}</strong></div></div>
-  <div class="metric"><span class="pixel-icon"></span><div><small>CATEGORIES</small><strong>{{ site.categories | size }}</strong></div></div>
+  <div class="metric"><span class="pixel-icon"></span><div><small>CATEGORIES</small><strong>{{ top_category_count }}</strong></div></div>
   <div class="metric"><span class="pixel-icon orange"></span><div><small>TAGS</small><strong>{{ site.tags | size }}</strong></div></div>
 </section>
 
@@ -44,18 +50,7 @@ layout: default
     <div><span class="page-kicker">02 / BROWSE</span><h2 id="browse-topics">CATEGORIES</h2></div>
     <a class="block-link" href="{{ '/categories/' | relative_url }}">카테고리 보기</a>
   </div>
-  <div class="principles block">
-    {% assign categories = site.categories | sort %}
-    {% for category in categories %}
-      {% assign category_slug = category[0] | slugify %}
-      {% assign category_path = '/categories/' | append: category_slug | append: '/' %}
-      <a class="principle" href="{{ category_path | relative_url }}">
-        <span class="block-label">{{ category[1] | size }} POSTS</span>
-        <h3>{{ category[0] }}</h3>
-        <p>관련 글 보기 →</p>
-      </a>
-    {% endfor %}
-  </div>
+  {% include p1ki-category-tree.html %}
 </section>
 
 <section class="home-section" aria-labelledby="browse-tags">

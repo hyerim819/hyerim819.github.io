@@ -1,6 +1,9 @@
 ---
 layout: default
 ---
-<div class="page-shell"><span class="page-kicker">POSTS / INDEX</span><h1 class="page-title">CATEGORIES</h1><p class="page-description">주제별 기록을 탐색합니다.</p>
-  <section class="principles block" style="margin-top:30px">{% assign categories = site.categories | sort %}{% for category in categories %}{% assign category_slug = category[0] | slugify %}{% assign category_path = '/categories/' | append: category_slug | append: '/' %}<a class="principle" href="{{ category_path | relative_url }}"><span class="block-label">{{ category[1] | size }} POSTS</span><h3>{{ category[0] }}</h3><p>관련 글 보기 →</p></a>{% endfor %}</section>
+<div class="page-shell">
+  <span class="page-kicker">POSTS / INDEX</span>
+  <h1 class="page-title">CATEGORIES</h1>
+  <p class="page-description">상위 주제와 그 아래의 세부 카테고리로 기록을 탐색합니다.</p>
+  {% include p1ki-category-tree.html page=true %}
 </div>

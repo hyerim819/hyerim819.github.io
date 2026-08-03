@@ -1,0 +1,47 @@
+{% assign sorted_categories = site.categories | sort %}
+<div class="category-tree{% if include.page %} category-tree-page{% endif %}">
+  {% for category in sorted_categories %}
+    {% assign category_name = category | first %}
+    {% assign category_posts = category | last %}
+    {% assign first_post = category_posts | first %}
+
+    {% if category_name == first_post.categories[0] %}
+      {% assign sub_categories = '' | split: '' %}
+      {% for post in category_posts %}
+        {% assign sub_category = post.categories[1] %}
+        {% if sub_category %}
+          {% unless sub_categories contains sub_category %}
+            {% assign sub_categories = sub_categories | push: sub_category %}
+          {% endunless %}
+        {% endif %}
+      {% endfor %}
+      {% assign sub_categories = sub_categories | sort %}
+      {% assign category_slug = category_name | slugify %}
+      {% assign category_path = '/categories/' | append: category_slug | append: '/' %}
+
+      <article class="category-group block">
+        <div class="category-parent-row">
+          <a href="{{ category_path | relative_url }}">
+            <span class="block-label">{{ category_posts | size }} POSTS</span>
+            <h3>{{ category_name }}</h3>
+            {% if sub_categories.size > 0 %}<small>{{ sub_categories.size }} SUBCATEGORY</small>{% endif %}
+          </a>
+        </div>
+
+        {% if sub_categories.size > 0 %}
+          <div class="category-children" aria-label="{{ category_name }} 하위 카테고리">
+            {% for sub_category in sub_categories %}
+              {% assign sub_slug = sub_category | slugify %}
+              {% assign sub_path = '/categories/' | append: sub_slug | append: '/' %}
+              <a class="category-child" href="{{ sub_path | relative_url }}">
+                <span aria-hidden="true">└</span>
+                <strong>{{ sub_category }}</strong>
+                <small>{{ site.categories[sub_category] | size }} POSTS</small>
+              </a>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </article>
+    {% endif %}
+  {% endfor %}
+</div>
