@@ -1,6 +1,10 @@
 ---
 layout: default
 ---
-<div class="page-shell"><span class="page-kicker">CATEGORY / {{ page.posts | size }} POSTS</span><h1 class="page-title">{{ page.title }}</h1>
-  <section class="archive-list">{% for post in page.posts %}<a class="archive-item" href="{{ post.url | relative_url }}"><time>{{ post.date | date: '%Y.%m.%d' }}</time><h2>{{ post.title }}</h2><span class="arrow">→</span></a>{% endfor %}</section>
+{% assign category_posts = page.posts %}
+{% if page.title == '블로그/기술문서' %}
+  {% assign category_posts = site.categories['블로그/기술문서'] | concat: site.categories['블로그'] | sort: 'date' | reverse %}
+{% endif %}
+<div class="page-shell"><span class="page-kicker">CATEGORY / {{ category_posts | size }} POSTS</span><h1 class="page-title">{{ page.title }}</h1>
+  <section class="archive-list">{% for post in category_posts %}<a class="archive-item" href="{{ post.url | relative_url }}"><time>{{ post.date | date: '%Y.%m.%d' }}</time><h2>{{ post.title }}</h2><span class="arrow">→</span></a>{% endfor %}</section>
 </div>

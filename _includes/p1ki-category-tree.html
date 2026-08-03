@@ -4,6 +4,11 @@
     {% assign category_name = category | first %}
     {% assign category_posts = category | last %}
     {% assign first_post = category_posts | first %}
+    {% assign display_post_count = category_posts | size %}
+    {% if category_name == '블로그/기술문서' %}
+      {% assign blog_posts_count = site.categories['블로그'] | size %}
+      {% assign display_post_count = display_post_count | plus: blog_posts_count %}
+    {% endif %}
 
     {% if category_name == first_post.categories[0] %}
       {% assign sub_categories = '' | split: '' %}
@@ -22,7 +27,7 @@
       <article class="category-group block">
         <div class="category-parent-row">
           <a href="{{ category_path | relative_url }}">
-            <span class="block-label">{{ category_posts | size }} POSTS</span>
+            <span class="block-label">{{ display_post_count }} POSTS</span>
             <h3>{{ category_name }}</h3>
             {% if sub_categories.size > 0 %}<small>{{ sub_categories.size }} SUBCATEGORY</small>{% endif %}
           </a>
