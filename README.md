@@ -1,5 +1,11 @@
 # [Start Bootstrap - Clean Blog Jekyll](https://startbootstrap.com/themes/clean-blog-jekyll/) - Official Jekyll Version
 
+## 티스토리 자동 동기화
+
+`https://p1ki.tistory.com/rss`에 공개된 글을 GitHub Actions가 약 30분 간격으로 확인합니다. 새 글은 `_posts`에 Jekyll 게시물로 추가되고, 티스토리에서 수정한 글도 다음 동기화 때 갱신됩니다. 각 게시물에는 티스토리 원문 링크와 canonical URL이 함께 저장됩니다.
+
+동기화를 즉시 확인하려면 GitHub 저장소의 **Actions → Deploy Jekyll site to Pages → Run workflow**를 실행합니다. 티스토리 RSS는 **관리 → 블로그 → 기타 설정**에서 공개 상태여야 합니다.
+
 [Clean Blog Jekyll](https://startbootstrap.com/themes/clean-blog-jekyll/) is a stylish, responsive blog theme for [Bootstrap](https://getbootstrap.com/) created by [Start Bootstrap](https://startbootstrap.com/). This theme features a blog homepage, about page, contact page, and an example post page along with a working contact form powered by [Formspree](https://formspree.io/).
 
 This repository holds the official Jekyll version of the Clean Blog theme on Start Bootstrap!
