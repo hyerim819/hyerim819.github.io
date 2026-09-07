@@ -1,100 +1,44 @@
-# The Site Configuration
+plugins:
+  - jekyll-archives
+  - jekyll-seo-tag
+  - jekyll-sitemap
 
-theme: jekyll-theme-chirpy
-
-lang: en
+lang: ko
 timezone: Asia/Seoul
 
-title: HYERIM_Blog
-
+title: p1ki
 tagline: 열정 원툴의 기록지
-
-description: >-
-  열정 원툴의 기록지
-
-url: ""
+description: 공부하고 활동한 내용을 정리하며 학습과 성장 과정을 기록하는 p1ki의 블로그입니다.
+url: "https://p1ki-lab.github.io"
 baseurl: ""
 
 github:
-  username: hyerim819
-
-twitter:
-  username:
+  username: p1ki-lab
 
 social:
-  name: hyerim819
-  email: wkdgpfla0819@naver.com
-  fediverse_handle:
+  name: p1ki
+  email:
   links:
-    - https://github.com/hyerim819
+    - https://github.com/p1ki-lab
 
 webmaster_verifications:
   google:
   bing:
-  alexa:
-  yandex:
-  baidu:
-  facebook:
 
 analytics:
   google:
-    id:
-  goatcounter:
-    id:
-  umami:
-    id:
-    domain:
-  matomo:
-    id:
-    domain:
-  cloudflare:
-    id:
-  fathom:
     id:
 
 pageviews:
   provider:
 
-theme_mode:
-
-cdn:
-
-avatar: /assets/img/profile.jpg
-
-social_preview_image:
-
-toc: true
-
 comments:
   provider:
-  disqus:
-    shortname:
-  utterances:
-    repo:
-    issue_term:
-  giscus:
-    repo:
-    repo_id:
-    category:
-    category_id:
-    mapping:
-    strict:
-    input_position:
-    lang:
-    reactions_enabled:
-
-assets:
-  self_host:
-    enabled:
-    env:
 
 pwa:
-  enabled: true
+  enabled: false
   cache:
-    enabled: true
-    deny_paths:
-
-paginate: 10
+    enabled: false
 
 kramdown:
   footnote_backlink: "&#8617;&#xfe0e;"
@@ -118,7 +62,7 @@ defaults:
       type: posts
     values:
       layout: post
-      comments: true
+      comments: false
       toc: true
       permalink: /posts/:title/
   - scope:
@@ -154,7 +98,6 @@ exclude:
   - purgecss.js
   - "*.config.js"
   - "package*.json"
- 
 
 jekyll-archives:
   enabled: [categories, tags]

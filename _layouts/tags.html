@@ -1,22 +1,6 @@
 ---
-layout: page
-# All the Tags of posts.
+layout: default
 ---
-
-<div id="tags" class="d-flex flex-wrap mx-xl-2">
-  {% assign tags = '' | split: '' %}
-  {% for t in site.tags %}
-    {% assign tags = tags | push: t[0] %}
-  {% endfor %}
-
-  {% assign sorted_tags = tags | sort_natural %}
-
-  {% for t in sorted_tags %}
-    <div>
-      <a class="tag" href="{{ t | slugify | url_encode | prepend: '/tags/' | append: '/' | relative_url }}">
-        {{ t -}}
-        <span class="text-muted">{{ site.tags[t].size }}</span>
-      </a>
-    </div>
-  {% endfor %}
+<div class="page-shell"><span class="page-kicker">POSTS / INDEX</span><h1 class="page-title">TAGS</h1><p class="page-description">세부 키워드로 기록을 찾습니다.</p>
+  <section class="block tag-cloud" style="margin-top:30px;padding:30px">{% assign tags = site.tags | sort %}{% for tag in tags %}{% assign tag_slug = tag[0] | slugify %}{% assign tag_path = '/tags/' | append: tag_slug | append: '/' %}<a class="tag" href="{{ tag_path | relative_url }}">{{ tag[0] }} {{ tag[1] | size }}</a>{% endfor %}</section>
 </div>

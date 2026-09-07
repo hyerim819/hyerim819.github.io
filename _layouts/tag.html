@@ -1,23 +1,6 @@
 ---
-layout: page
-# The layout for Tag page
+layout: default
 ---
-
-{% include lang.html %}
-
-<div id="page-tag">
-  <h1 class="ps-lg-2">
-    <i class="fa fa-tag fa-fw text-muted"></i>
-    {{ page.title }}
-    <span class="lead text-muted ps-2">{{ page.posts | size }}</span>
-  </h1>
-  <ul class="content ps-0">
-    {% for post in page.posts %}
-      <li class="d-flex justify-content-between px-md-3">
-        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        <span class="dash flex-grow-1"></span>
-        {% include datetime.html date=post.date class='text-muted small text-nowrap' lang=lang %}
-      </li>
-    {% endfor %}
-  </ul>
+<div class="page-shell"><span class="page-kicker">TAG / {{ page.posts | size }} POSTS</span><h1 class="page-title">{{ page.title }}</h1>
+  <section class="archive-list">{% for post in page.posts %}<a class="archive-item" href="{{ post.url | relative_url }}"><time>{{ post.date | date: '%Y.%m.%d' }}</time><h2>{{ post.title }}</h2><span class="arrow">→</span></a>{% endfor %}</section>
 </div>

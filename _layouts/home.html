@@ -2,139 +2,101 @@
 layout: default
 ---
 
-{% include lang.html %}
+<section class="notebook-app" data-notebook-app>
+  <div class="notebook-entry" data-notebook-entry>
+    <div class="entry-canvas">
+      <img src="{{ '/assets/img/ghost-404-reference.png' | relative_url }}" alt="404 Boo! Page missing! 유령 안내 화면">
+      <button class="ghost-hotspot" type="button" data-notebook-enter aria-label="유령을 눌러 블로그 홈으로 이동">
+        <span>입장하기</span>
+      </button>
+    </div>
+    <p class="entry-hint" aria-hidden="true">○ 유령을 눌러보세요</p>
+  </div>
 
-{% assign all_pinned = site.posts | where: 'pin', 'true' %}
-{% assign all_normal = site.posts | where_exp: 'item', 'item.pin != true and item.hidden != true' %}
+  <div class="notebook-desktop" data-notebook-desktop hidden>
+    <header class="notebook-header">
+      <button type="button" class="notebook-brand" data-notebook-home>p1ki.log</button>
+      <span>PERSONAL NOTEBOOK</span>
+    </header>
 
-{% assign posts = '' | split: '' %}
-
-<!-- Get pinned posts on current page -->
-
-{% assign visible_start = paginator.page | minus: 1 | times: paginator.per_page %}
-{% assign visible_end = visible_start | plus: paginator.per_page %}
-
-{% if all_pinned.size > visible_start %}
-  {% if all_pinned.size > visible_end %}
-    {% assign pinned_size = paginator.per_page %}
-  {% else %}
-    {% assign pinned_size = all_pinned.size | minus: visible_start %}
-  {% endif %}
-
-  {% for i in (visible_start..all_pinned.size) limit: pinned_size %}
-    {% assign posts = posts | push: all_pinned[i] %}
-  {% endfor %}
-{% else %}
-  {% assign pinned_size = 0 %}
-{% endif %}
-
-<!-- Get normal posts on current page -->
-
-{% assign normal_size = paginator.posts | size | minus: pinned_size %}
-
-{% if normal_size > 0 %}
-  {% if pinned_size > 0 %}
-    {% assign normal_start = 0 %}
-  {% else %}
-    {% assign normal_start = visible_start | minus: all_pinned.size %}
-  {% endif %}
-
-  {% assign normal_end = normal_start | plus: normal_size | minus: 1 %}
-
-  {% for i in (normal_start..normal_end) %}
-    {% assign posts = posts | push: all_normal[i] %}
-  {% endfor %}
-{% endif %}
-
-<div id="post-list" class="flex-grow-1 px-xl-1">
-  {% for post in posts %}
-    <article class="card-wrapper card">
-      <a href="{{ post.url | relative_url }}" class="post-preview row g-0 flex-md-row-reverse">
-        {% assign card_body_col = '12' %}
-
-        {% if post.image %}
-          {% assign src = post.image.path | default: post.image %}
-
-          {% if post.media_subpath %}
-            {% unless src contains '://' %}
-              {% assign src = post.media_subpath
-                | append: '/'
-                | append: src
-                | replace: '///', '/'
-                | replace: '//', '/'
-              %}
-            {% endunless %}
-          {% endif %}
-
-          {% if post.image.lqip %}
-            {% assign lqip = post.image.lqip %}
-
-            {% if post.media_subpath %}
-              {% unless lqip contains 'data:' %}
-                {% assign lqip = post.media_subpath
-                  | append: '/'
-                  | append: lqip
-                  | replace: '///', '/'
-                  | replace: '//', '/'
-                %}
-              {% endunless %}
-            {% endif %}
-
-            {% assign lqip_attr = 'lqip="' | append: lqip | append: '"' %}
-          {% endif %}
-
-          {% assign alt = post.image.alt | xml_escape | default: 'Preview Image' %}
-
-          <div class="col-md-5">
-            <img src="{{ src }}" alt="{{ alt }}" {{ lqip_attr }}>
-          </div>
-
-          {% assign card_body_col = '7' %}
-        {% endif %}
-
-        <div class="col-md-{{ card_body_col }}">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">{{ post.title }}</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>{% include post-summary.html %}</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                {% include datetime.html date=post.date lang=lang %}
-
-                <!-- categories -->
-                {% if post.categories.size > 0 %}
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    {% for category in post.categories %}
-                      {{ category }}
-                      {%- unless forloop.last -%},{%- endunless -%}
-                    {% endfor %}
-                  </span>
-                {% endif %}
-              </div>
-
-              {% if post.pin %}
-                <div class="pin ms-1">
-                  <i class="fas fa-thumbtack fa-fw"></i>
-                  <span>{{ site.data.locales[lang].post.pin_prompt }}</span>
-                </div>
-              {% endif %}
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
+    <div class="notebook-workspace">
+      <div class="notebook-home" data-notebook-home-panel>
+        <div class="notebook-title">
+          <p>WELCOME TO MY NOTEBOOK</p>
+          <h1>Boo! Welcome home.</h1>
+          <span>기록을 꺼내보려면 폴더를 선택하세요.</span>
         </div>
-      </a>
-    </article>
-  {% endfor %}
-</div>
-<!-- #post-list -->
 
-{% if paginator.total_pages > 1 %}
-  {% include post-paginator.html %}
-{% endif %}
+        <nav class="notebook-folders" aria-label="블로그 폴더">
+          <button class="notebook-folder" type="button" data-notebook-folder="profile">
+            <span class="folder-number">01</span>
+            <span class="folder-drawing" aria-hidden="true">
+              <svg viewBox="0 0 96 80"><path d="M6 20h31l8-10h18c5 0 9 4 9 9v3h18v48H6z"/><circle cx="48" cy="43" r="8"/><path d="M34 62c2-8 8-12 14-12s12 4 14 12"/></svg>
+            </span>
+            <strong>프로필</strong><small>PROFILE</small>
+          </button>
+          <button class="notebook-folder" type="button" data-notebook-folder="posts">
+            <span class="folder-number">02</span>
+            <span class="folder-drawing" aria-hidden="true">
+              <svg viewBox="0 0 96 80"><path d="M6 20h31l8-10h18c5 0 9 4 9 9v3h18v48H6z"/><path d="M37 37h22M37 46h22M37 55h15"/></svg>
+            </span>
+            <strong>포스트</strong><small>POSTS</small>
+          </button>
+          <button class="notebook-folder" type="button" data-notebook-folder="archive">
+            <span class="folder-number">03</span>
+            <span class="folder-drawing" aria-hidden="true">
+              <svg viewBox="0 0 96 80"><path d="M6 20h31l8-10h18c5 0 9 4 9 9v3h18v48H6z"/><path d="M34 40h28v22H34zM32 34h32v7H32zM44 48h8"/></svg>
+            </span>
+            <strong>아카이브</strong><small>ARCHIVE</small>
+          </button>
+        </nav>
+
+        <button class="notebook-return" type="button" data-notebook-return>← 404 화면으로</button>
+      </div>
+
+      <article class="notebook-window" data-notebook-panel="profile" hidden>
+        <div class="window-toolbar"><span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span><b>PROFILE.TXT</b><button type="button" data-notebook-home aria-label="홈으로 돌아가기">⌂</button></div>
+        <div class="window-content">
+          <p class="file-label">PROFILE.TXT</p>
+          <h2>안녕하세요,<br>기록하며 배우는 사람입니다.</h2>
+          <p>보안과 개발을 공부하며 배운 내용을 쉽게 다시 찾을 수 있도록 정리합니다.</p>
+          <a class="window-link" href="{{ '/about/' | relative_url }}">자세한 프로필 보기 →</a>
+          <button class="window-back" type="button" data-notebook-home>← 폴더 목록으로</button>
+        </div>
+      </article>
+
+      <article class="notebook-window" data-notebook-panel="posts" hidden>
+        <div class="window-toolbar"><span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span><b>POSTS.LOG</b><button type="button" data-notebook-home aria-label="홈으로 돌아가기">⌂</button></div>
+        <div class="window-content">
+          <p class="file-label">POSTS.LOG</p>
+          <h2>최근 포스트</h2>
+          <p>공부하고 활동한 내용을 최신순으로 확인할 수 있습니다.</p>
+          <ul class="notebook-posts">
+            {% for post in site.posts limit: 5 %}
+              <li><time>{{ post.date | date: '%Y.%m.%d' }}</time><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+            {% else %}
+              <li><span>아직 공개된 포스트가 없습니다.</span></li>
+            {% endfor %}
+          </ul>
+          <a class="window-link" href="{{ '/archives/' | relative_url }}">전체 포스트 보기 →</a>
+          <button class="window-back" type="button" data-notebook-home>← 폴더 목록으로</button>
+        </div>
+      </article>
+
+      <article class="notebook-window" data-notebook-panel="archive" hidden>
+        <div class="window-toolbar"><span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span><b>ARCHIVE.ZIP</b><button type="button" data-notebook-home aria-label="홈으로 돌아가기">⌂</button></div>
+        <div class="window-content">
+          <p class="file-label">ARCHIVE.ZIP</p>
+          <h2>기록 보관소</h2>
+          <p>총 {{ site.posts | size }}개의 학습 기록을 날짜와 주제별로 모아두었습니다.</p>
+          <div class="archive-shortcuts">
+            <a href="{{ '/archives/' | relative_url }}"><strong>ARCHIVE</strong><span>전체 기록</span></a>
+            <a href="{{ '/categories/' | relative_url }}"><strong>CATEGORIES</strong><span>주제별</span></a>
+            <a href="{{ '/tags/' | relative_url }}"><strong>TAGS</strong><span>키워드별</span></a>
+          </div>
+          <button class="window-back" type="button" data-notebook-home>← 폴더 목록으로</button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
