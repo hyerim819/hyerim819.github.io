@@ -1,13 +1,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#f4f3ef">
+  <meta name="theme-color" content="#ffffff">
   {% seo %}
   <title>{% if page.title %}{{ page.title }} | {% endif %}p1ki</title>
+  <meta property="og:image" content="{{ '/assets/img/og.png' | absolute_url }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="{{ '/assets/img/og.png' | absolute_url }}">
   <link rel="icon" href="{{ '/assets/img/favicons/favicon.ico' | relative_url }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/assets/css/p1ki.css' | relative_url }}">
   <link rel="alternate" type="application/atom+xml" title="p1ki feed" href="{{ '/feed.xml' | absolute_url }}">
 </head>

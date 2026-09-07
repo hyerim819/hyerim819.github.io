@@ -24,4 +24,56 @@
     });
     if (!headings.length) toc.closest('.article-toc').hidden = true;
   }
+
+  const notebook = document.querySelector('[data-notebook-app]');
+  if (notebook) {
+    const entry = notebook.querySelector('[data-notebook-entry]');
+    const desktop = notebook.querySelector('[data-notebook-desktop]');
+    const homePanel = notebook.querySelector('[data-notebook-home-panel]');
+    const panels = notebook.querySelectorAll('[data-notebook-panel]');
+    const folderButtons = notebook.querySelectorAll('[data-notebook-folder]');
+
+    function showHome() {
+      panels.forEach(function (panel) { panel.hidden = true; });
+      homePanel.hidden = false;
+      const firstFolder = notebook.querySelector('[data-notebook-folder]');
+      if (firstFolder) firstFolder.focus();
+    }
+
+    function enterNotebook() {
+      entry.hidden = true;
+      desktop.hidden = false;
+      showHome();
+    }
+
+    const enterButton = notebook.querySelector('[data-notebook-enter]');
+    if (enterButton) enterButton.addEventListener('click', enterNotebook);
+
+    folderButtons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        const target = button.getAttribute('data-notebook-folder');
+        const panel = notebook.querySelector('[data-notebook-panel="' + target + '"]');
+        homePanel.hidden = true;
+        panels.forEach(function (item) { item.hidden = true; });
+        if (panel) {
+          panel.hidden = false;
+          const back = panel.querySelector('[data-notebook-home]');
+          if (back) back.focus();
+        }
+      });
+    });
+
+    notebook.querySelectorAll('[data-notebook-home]').forEach(function (button) {
+      button.addEventListener('click', showHome);
+    });
+
+    const returnButton = notebook.querySelector('[data-notebook-return]');
+    if (returnButton) {
+      returnButton.addEventListener('click', function () {
+        desktop.hidden = true;
+        entry.hidden = false;
+        if (enterButton) enterButton.focus();
+      });
+    }
+  }
 })();
