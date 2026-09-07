@@ -294,6 +294,14 @@ button, input { font: inherit; }
 .identity-field { min-height: 72px; padding: 16px; background: var(--surface); }
 .identity-field span { display: block; color: var(--blue); font-family: var(--pixel-font); font-size: .6rem; }
 .identity-field strong { display: block; min-height: 1.6rem; margin-top: .35rem; font-weight: 500; }
+.about-hero-simple { display: block; max-width: 1180px; }
+.about-hero-simple > div { width: 100%; }
+.profile-history { max-width: 980px; margin-top: 52px; }
+.profile-history > p { margin: 0 0 12px; color: var(--blue); font-family: var(--pixel-font); font-size: .64rem; }
+.profile-history ul { margin: 0; padding: 0; border-top: 1px solid var(--line); list-style: none; }
+.profile-history li { display: grid; grid-template-columns: 150px 1fr; gap: 28px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.profile-history span { color: var(--muted); font-family: var(--mono-font); font-size: .82rem; }
+.profile-history strong { font-size: 1rem; font-weight: 500; }
 .about-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
 .about-block { padding: 28px; }
 .about-block.wide { grid-column: span 2; }
@@ -391,6 +399,8 @@ button, input { font: inherit; }
   .about-grid { grid-template-columns: 1fr; }
   .about-block.wide { grid-column: auto; }
   .identity-grid, .skill-groups, .timeline { grid-template-columns: 1fr 1fr; }
+  .profile-history { margin-top: 36px; }
+  .profile-history li { grid-template-columns: 1fr; gap: 5px; padding: 15px 0; }
   .home-path-grid { grid-template-columns: 1fr 1fr; }
   .project-summary-grid, .process-grid { grid-template-columns: 1fr; }
   .project-summary-grid div { border-right: 0; border-bottom: 1px solid var(--line); }
