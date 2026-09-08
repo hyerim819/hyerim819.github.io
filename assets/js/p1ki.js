@@ -25,6 +25,39 @@
     if (!headings.length) toc.closest('.article-toc').hidden = true;
   }
 
+  if (article) {
+    article.querySelectorAll('div.highlighter-rouge').forEach(function (block) {
+      const code = block.querySelector('pre code');
+      if (!code) return;
+
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'code-copy-button';
+      button.setAttribute('aria-label', '코드 복사');
+      button.title = '코드 복사';
+      button.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="11" height="11" rx="1.5"></rect><path d="M16 8V5.5A1.5 1.5 0 0 0 14.5 4h-10A1.5 1.5 0 0 0 3 5.5v10A1.5 1.5 0 0 0 4.5 17H8"></path></svg>';
+
+      button.addEventListener('click', async function () {
+        try {
+          await navigator.clipboard.writeText(code.textContent);
+          button.classList.add('is-copied');
+          button.setAttribute('aria-label', '복사 완료');
+          button.title = '복사 완료';
+          window.setTimeout(function () {
+            button.classList.remove('is-copied');
+            button.setAttribute('aria-label', '코드 복사');
+            button.title = '코드 복사';
+          }, 1400);
+        } catch (error) {
+          button.setAttribute('aria-label', '복사 실패');
+          button.title = '복사 실패';
+        }
+      });
+
+      block.appendChild(button);
+    });
+  }
+
   const notebook = document.querySelector('[data-notebook-app]');
   if (notebook) {
     const entry = notebook.querySelector('[data-notebook-entry]');
