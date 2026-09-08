@@ -3,7 +3,7 @@ layout: post
 title: "북한 UNC4736, 신분 위조·대면 접촉으로 드리프트 2억8500만달러 탈취 사례" 
 description: 최신 보안사고 사례 분석
 date: 2026-05-13
-categories: [블로그/기술문서]
+categories: [블로그]
 tags: []
 ---
 # 북한 UNC4736, 신분 위조·대면 접촉으로 드리프트서 2억8500만달러 탈취 사례 정리

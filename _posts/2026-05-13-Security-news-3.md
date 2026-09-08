@@ -3,7 +3,7 @@ layout: post
 title: "AXIOS 공급망 해킹 사례" 
 description: 최신 보안사고 사례 분석
 date: 2026-05-13
-categories: [블로그/기술문서]
+categories: [블로그]
 tags: []
 ---
 <style>

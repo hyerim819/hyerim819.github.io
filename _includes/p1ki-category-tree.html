@@ -5,10 +5,6 @@
     {% assign category_posts = category | last %}
     {% assign first_post = category_posts | first %}
     {% assign display_post_count = category_posts | size %}
-    {% if category_name == '블로그/기술문서' %}
-      {% assign blog_posts_count = site.categories['블로그'] | size %}
-      {% assign display_post_count = display_post_count | plus: blog_posts_count %}
-    {% endif %}
 
     {% if category_name == first_post.categories[0] %}
       {% assign sub_categories = '' | split: '' %}

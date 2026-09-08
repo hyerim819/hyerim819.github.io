@@ -3,7 +3,7 @@ layout: post
 title: "대규모 공급망 공격에 악용된 Notepad++  사례" 
 description: 최신 보안사고 사례 분석
 date: 2026-05-13
-categories: [블로그/기술문서]
+categories: [블로그]
 tags: []
 ---
 # Notepad++ 대규모 공급망 공격 사건 정리

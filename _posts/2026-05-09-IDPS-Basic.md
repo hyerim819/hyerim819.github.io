@@ -3,7 +3,7 @@ layout: post
 title: "IDS/IPS란? 침입 탐지와 침입 방지 시스템의 이해"
 description: "침입 탐지 및 방지 시스템(IDS/IPS)의 동작 원리, 유형, 활용 방법, 장단점, 차이점"
 date: 2026-05-09
-categories: [블로그/기술문서]
+categories: [블로그]
 tags: [IDPS, IPS, IDS]
 ---
 
