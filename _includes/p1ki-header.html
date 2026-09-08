@@ -1,9 +1,9 @@
 <header class="site-header" data-site-header>
   <div class="header-inner">
-    <a class="brand" href="{{ '/' | relative_url }}" aria-label="p1ki 홈">p1ki.log</a>
+    <a class="brand" href="{{ '/' | relative_url }}?view=home" aria-label="p1ki 홈">p1ki.log</a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>MENU</button>
     <nav id="site-nav" class="site-nav" aria-label="주요 메뉴" data-site-nav>
-      <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} class="active" aria-current="page"{% endif %}>HOME</a>
+      <a href="{{ '/' | relative_url }}?view=home"{% if page.url == '/' %} class="active" aria-current="page"{% endif %}>HOME</a>
       <a href="{{ '/about/' | relative_url }}"{% if page.url contains '/about' %} class="active" aria-current="page"{% endif %}>PROFILE</a>
       <a href="{{ '/archives/' | relative_url }}"{% if page.layout == 'post' %} class="active" aria-current="page"{% endif %}>POSTS</a>
       <a href="{{ '/archives/' | relative_url }}"{% if page.url contains '/archives' %} class="active" aria-current="page"{% endif %}>ARCHIVE</a>

@@ -49,6 +49,9 @@
     const enterButton = notebook.querySelector('[data-notebook-enter]');
     if (enterButton) enterButton.addEventListener('click', enterNotebook);
 
+    const notebookView = new URLSearchParams(window.location.search).get('view');
+    if (notebookView === 'home') enterNotebook();
+
     folderButtons.forEach(function (button) {
       button.addEventListener('click', function () {
         const target = button.getAttribute('data-notebook-folder');
@@ -72,6 +75,9 @@
       returnButton.addEventListener('click', function () {
         desktop.hidden = true;
         entry.hidden = false;
+        const cleanUrl = new URL(window.location.href);
+        cleanUrl.searchParams.delete('view');
+        window.history.replaceState({}, '', cleanUrl.pathname + cleanUrl.search + cleanUrl.hash);
         if (enterButton) enterButton.focus();
       });
     }
