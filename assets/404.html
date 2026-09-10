@@ -4,6 +4,5 @@ title: "404: Page not found"
 permalink: /404.html
 ---
 
-{% include lang.html %}
-
-<p class="lead">{{ site.data.locales[lang].not_found.statement }}</p>
+<p>요청한 페이지를 찾을 수 없습니다.</p>
+<p><a href="{{ '/' | relative_url }}">유령 화면으로 돌아가기 →</a></p>

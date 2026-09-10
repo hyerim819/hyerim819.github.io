@@ -1,5 +1,5 @@
 ---
-layout: compress
+layout: null
 permalink: /feed.xml
 # Atom Feed, reference: https://validator.w3.org/feed/docs/atom.html
 ---
@@ -45,10 +45,10 @@ permalink: /feed.xml
     {% endfor %}
   {% endif %}
 
-  <summary>{% include post-summary.html max_length=400 %}</summary>
+  <summary>{{ post.description | default: post.excerpt | strip_html | strip_newlines | truncate: 400 | xml_escape }}</summary>
 
   </entry>
 {% endfor %}
 </feed>
 {% endcapture %}
-{{ source | replace: '&', '&amp;' }}
+{{ source }}
